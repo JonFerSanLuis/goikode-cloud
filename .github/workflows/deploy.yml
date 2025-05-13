@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -15,6 +16,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: gh-pages
-          folder: .
-          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages          # Rama donde se hace el deploy
+          folder: .                 # Carpeta que contiene el contenido a desplegar
+          token: ${{ secrets.GH_PAGES_TOKEN }}  # <- Aquí usamos el secreto
